@@ -22,10 +22,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherManager.delegate = self
+        searchBar.delegate = self
     }
     
     // IBAction
     @IBAction func searchButtonTapped(_ sender: UIButton) {
+        fetchWeather()
+    }
+    
+    func fetchWeather() {
         if searchBar.isSearchable() {
             weatherManager.fetchWeather(for: searchBar.text!)
             DispatchQueue.main.async {
@@ -47,15 +52,7 @@ extension HomeViewController: WeatherManagerDelegate {
     }
 }
 
-extension UISearchBar {
-    /// This method checks that SearchBar TextField contains some text or not.
-    func isSearchable() -> Bool {
-        if text?.count == 0 {
-            return false
-        }
-        if text?.replacingOccurrences(of: " ", with: "").count == 0 {
-            return false
-        }
-        return true
-    }
+//MARK:- SearchBarDelegate
+extension HomeViewController: UISearchBarDelegate {
+    
 }

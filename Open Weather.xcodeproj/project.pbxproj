@@ -19,6 +19,7 @@
 		B41E191B25362BD100B64D93 /* Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41E191A25362BD100B64D93 /* Parsable.swift */; };
 		B41E191E25362BFE00B64D93 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41E191D25362BFE00B64D93 /* WeatherManager.swift */; };
 		B41E1924253632F300B64D93 /* WeatherManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41E1923253632F300B64D93 /* WeatherManagerDelegate.swift */; };
+		B41E192925363E2A00B64D93 /* SearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41E192825363E2A00B64D93 /* SearchBarExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B41E191A25362BD100B64D93 /* Parsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsable.swift; sourceTree = "<group>"; };
 		B41E191D25362BFE00B64D93 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		B41E1923253632F300B64D93 /* WeatherManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManagerDelegate.swift; sourceTree = "<group>"; };
+		B41E192825363E2A00B64D93 /* SearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B41E191A25362BD100B64D93 /* Parsable.swift */,
 				B41E1923253632F300B64D93 /* WeatherManagerDelegate.swift */,
 				B41E191D25362BFE00B64D93 /* WeatherManager.swift */,
+				B41E192825363E2A00B64D93 /* SearchBarExtension.swift */,
 				B41E18FC253627AB00B64D93 /* HomeViewController.swift */,
 				B41E18FE253627AB00B64D93 /* Main.storyboard */,
 				B41E1901253627AE00B64D93 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B41E191525362B1F00B64D93 /* WeatherError.swift in Sources */,
+				B41E192925363E2A00B64D93 /* SearchBarExtension.swift in Sources */,
 				B41E18FD253627AB00B64D93 /* HomeViewController.swift in Sources */,
 				B41E191E25362BFE00B64D93 /* WeatherManager.swift in Sources */,
 				B41E1924253632F300B64D93 /* WeatherManagerDelegate.swift in Sources */,
