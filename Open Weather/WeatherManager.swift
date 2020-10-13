@@ -10,6 +10,7 @@ import Foundation
 /// Structure used to manage tasks related to request creation, execution and fetching weather data using API.
 struct WeatherManager {
     var api: WeatherAPI
+    var delegate: WeatherManagerDelegate?
     
     /// This method creates an URL for API request.
     private func createRequest(for city: String) -> URL? {
@@ -33,6 +34,8 @@ struct WeatherManager {
 }
 
 extension WeatherManager: Parsable {
+    
+    
     /// This method creates a session and retrieves data using API.
     private func performRequest(for url: URL) {
         print("performing request...")
@@ -48,9 +51,14 @@ extension WeatherManager: Parsable {
             print("should parse data.")
             if let parsedData = parse(data: sessionData) {
                 print(parsedData.main.feels_like)
+                delegate?.didFetchData(parsedData)
             }
             print("parsing data successful")
         }
         dataTask.resume()
     }
+}
+
+extension WeatherManager: Presentable {
+    
 }
