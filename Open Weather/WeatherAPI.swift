@@ -7,9 +7,11 @@
 
 import Foundation
 
+/// Enumeration of Weather APIs for using multiple APIs.
 enum WeatherAPI {
     case OpenWeatherMap
     
+    /// Enumeration of API parameters.
     enum Parameter {
         case city
         case unit
@@ -17,6 +19,7 @@ enum WeatherAPI {
 }
 
 extension WeatherAPI {
+    /// This method returns URL String for selected WeatherAPI.
     func getUrl() throws -> String {
         switch self {
         case .OpenWeatherMap:
@@ -26,6 +29,7 @@ extension WeatherAPI {
             throw WeatherError.APIURLNotFound
         }
     }
+    /// This method returns Key as String for selected WeatherAPI.
     func getKey() throws -> String {
         switch self {
         case .OpenWeatherMap:
@@ -35,6 +39,7 @@ extension WeatherAPI {
             throw WeatherError.APIKeyNotFound
         }
     }
+    /// This method returns Key with respective Parameter Name as String according to selected WeatherAPI.
     func getKeyWithParameterName() throws -> String {
         switch self {
         case .OpenWeatherMap:
@@ -45,6 +50,7 @@ extension WeatherAPI {
             throw WeatherError.APIKeyNotFound
         }
     }
+    /// This method returns Parameter Name as String for provided Parameter.
     func getParameterName(for parameter: Parameter) throws -> String {
         switch self {
         case .OpenWeatherMap:

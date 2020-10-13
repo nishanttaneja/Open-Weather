@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// This structure is the data model required to parse data from OpenWeatherMap API.
 struct WeatherData: Decodable {
     let weather: [Weather]
     let main: Main

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Errors occurred during tasks related to weather fetching.
 enum WeatherError: Error {
     case APIKeyNotFound
     case APIURLNotFound

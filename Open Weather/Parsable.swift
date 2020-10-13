@@ -7,11 +7,13 @@
 
 import Foundation
 
+/// Protocol used for parsing weather data.
 protocol Parsable {
     func parse(data: Data) -> WeatherData?
 }
 
 extension Parsable {
+    /// This method parses WeatherData from retrieved data.
     func parse(data: Data) -> WeatherData? {
         print("parsing data...")
         let decoder = JSONDecoder()
