@@ -46,15 +46,15 @@ extension WeatherData {
         return weather.description
     }
     var temperatureString: String {
-        return String(format: "%.1f ºC", main.temp)
+        return String(format: "%.1fºC", main.temp)
     }
     var feelsLikeTemperatureString: String {
-        return String(format: "%.1f ºC", main.feels_like)
+        return String(format: "%.1fºC", main.feels_like)
     }
     var lowestTemperatureString: String {
-        return String(format: "%.1f ºC", main.temp_min)
+        return String(format: "%.1fºC", main.temp_min)
     }
     var highestTemperatureString: String {
-        return String(format: "%.1f ºC", main.temp_max)
+        return String(format: "%.1fºC", main.temp_max)
     }
 }
