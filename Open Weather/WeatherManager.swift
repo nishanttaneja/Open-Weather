@@ -12,8 +12,8 @@ struct WeatherManager {
     
     private func createRequest(for city: String) -> URL? {
         print("creating request...")
-        if let baseUrlString = try? api.getUrl(), let apiKeyWithParameterName = try? api.getKeyWithParameterName(), let cityWithParameterName = try? api.getParameterName(for: .city) + city {
-            let urlString = baseUrlString + cityWithParameterName + "&" + apiKeyWithParameterName
+        if let baseUrlString = try? api.getUrl(), let apiKeyWithParameterName = try? api.getKeyWithParameterName(), let cityWithParameterName = try? api.getParameterName(for: .city) + city, let unitWithParameterName = try? api.getParameterName(for: .unit) + "metric" {
+            let urlString = baseUrlString + cityWithParameterName + "&" + unitWithParameterName + "&" + apiKeyWithParameterName
             if let url = URL(string: urlString) {
                 return url
             }
