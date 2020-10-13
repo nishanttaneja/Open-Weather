@@ -41,9 +41,28 @@ struct Sys: Decodable {
 
 // Presentable Variables
 extension WeatherData {
-    // Weather Description
+    var condition: String {
+        switch weather[0].id {
+        case 200...232:
+            return "cloud.bolt"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.rain"
+        case 600...622:
+            return "cloud.snow"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801...804:
+            return "cloud.bolt"
+        default:
+            return "cloud"
+        }
+    }
     var weatherDescriptionString: String {
-        return weather.description
+        return weather[0].description
     }
     var temperatureString: String {
         return String(format: "%.1fºC", main.temp)
