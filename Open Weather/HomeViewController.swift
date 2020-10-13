@@ -18,23 +18,34 @@ class HomeViewController: UIViewController {
     // Initialise Weather Manager
     var weatherManager = WeatherManager(api: .OpenWeatherMap)
     
-    // Override View Methods
+    // View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherManager.delegate = self
         searchBar.delegate = self
     }
     
+    // User Touches
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBar.endEditing(true)
+    }
+    
     // IBAction
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         fetchWeather()
     }
-    
+}
+
+extension HomeViewController {
+    /// This method fetches weather data if searchbar contains some text, then removes text.
     func fetchWeather() {
         if searchBar.isSearchable() {
             weatherManager.fetchWeather(for: searchBar.text!)
             DispatchQueue.main.async {
                 self.searchBar.text = nil
+            }
+            if searchBar.isFirstResponder {
+                searchBar.endEditing(true)
             }
         }
     }
@@ -54,5 +65,7 @@ extension HomeViewController: WeatherManagerDelegate {
 
 //MARK:- SearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchWeather()
+    }
 }
