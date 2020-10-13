@@ -24,7 +24,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="pfm-m2-PJC"/>
                                         </constraints>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-YS-k2y">
                                         <rect key="frame" x="314" y="0.0" width="70" height="30"/>
