@@ -49,12 +49,12 @@ extension WeatherData {
         return String(format: "%.1fºC", main.temp)
     }
     var feelsLikeTemperatureString: String {
-        return String(format: "%.1fºC", main.feels_like)
+        return String(format: "Feels like: %.1fºC", main.feels_like)
     }
     var lowestTemperatureString: String {
-        return String(format: "%.1fºC", main.temp_min)
+        return String(format: "L: %.1fºC", main.temp_min)
     }
     var highestTemperatureString: String {
-        return String(format: "%.1fºC", main.temp_max)
+        return String(format: "H: %.1fºC", main.temp_max)
     }
 }
