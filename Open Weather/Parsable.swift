@@ -15,7 +15,6 @@ protocol Parsable {
 extension Parsable {
     /// This method parses WeatherData from retrieved data.
     func parse(data: Data) -> WeatherData? {
-        print("parsing data...")
         let decoder = JSONDecoder()
         do {
             let weatherData = try decoder.decode(WeatherData.self, from: data)
