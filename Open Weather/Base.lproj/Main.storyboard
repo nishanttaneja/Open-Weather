@@ -40,22 +40,28 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="DYN-17-vmr" userLabel="Temperature">
-                                <rect key="frame" x="274.5" y="104" width="119.5" height="101"/>
+                                <rect key="frame" x="274.5" y="104" width="119.5" height="121.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like: 27ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LPD-Dp-M2Z">
+                                        <rect key="frame" x="3" y="0.0" width="116.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ulg-o3-odk">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="60"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="119.5" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H: 34ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LPD-Dp-M2Z">
-                                        <rect key="frame" x="59" y="60" width="60.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H: 34ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-mF-g7d">
+                                        <rect key="frame" x="59" y="80.5" width="60.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L: 25ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="j1X-bK-JTE">
-                                        <rect key="frame" x="63" y="80.5" width="56.5" height="20.5"/>
+                                        <rect key="frame" x="63" y="101" width="56.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -75,7 +81,8 @@
                     </view>
                     <connections>
                         <outlet property="LowTempLabel" destination="j1X-bK-JTE" id="Y3B-Yf-Yyc"/>
-                        <outlet property="highTempLabel" destination="LPD-Dp-M2Z" id="r7O-1B-JbR"/>
+                        <outlet property="feelsLikeTempLabel" destination="LPD-Dp-M2Z" id="dNt-v8-loM"/>
+                        <outlet property="highTempLabel" destination="eC4-mF-g7d" id="7RY-Ey-FTc"/>
                         <outlet property="searchBar" destination="1e8-bk-3aE" id="aM0-DJ-vvb"/>
                         <outlet property="tempLabel" destination="Ulg-o3-odk" id="scH-5B-dla"/>
                     </connections>
