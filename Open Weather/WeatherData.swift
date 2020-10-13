@@ -38,3 +38,23 @@ struct Wind: Decodable {
 struct Sys: Decodable {
     let country: String
 }
+
+// Presentable Variables
+extension WeatherData {
+    // Weather Description
+    var weatherDescriptionString: String {
+        return weather.description
+    }
+    var temperatureString: String {
+        return String(format: "%.1f ºC", main.temp)
+    }
+    var feelsLikeTemperatureString: String {
+        return String(format: "%.1f ºC", main.feels_like)
+    }
+    var lowestTemperatureString: String {
+        return String(format: "%.1f ºC", main.temp_min)
+    }
+    var highestTemperatureString: String {
+        return String(format: "%.1f ºC", main.temp_max)
+    }
+}
