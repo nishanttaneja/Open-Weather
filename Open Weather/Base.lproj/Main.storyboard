@@ -16,54 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="OtA-Fy-OK3" userLabel="Background">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow" translatesAutoresizingMaskIntoConstraints="NO" id="OtA-Fy-OK3" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGI-05-aYB" userLabel="Top Bar">
-                                <rect key="frame" x="0.0" y="10" width="320" height="56"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter City Name" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-bk-3aE">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="56"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfc-YS-k2y">
-                                        <rect key="frame" x="220" y="0.0" width="100" height="56"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tI9-Je-EJr"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.27952034197641173" green="0.19328601147578414" blue="0.36230964467005078" alpha="0.48145869006849318" colorSpace="custom" customColorSpace="sRGB"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DYN-17-vmr" userLabel="Temperature">
                                 <rect key="frame" x="80" y="76" width="220" height="121.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like: 27ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LPD-Dp-M2Z">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ulg-o3-odk">
                                         <rect key="frame" x="0.0" y="20.5" width="220" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H: 34ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-mF-g7d">
                                         <rect key="frame" x="0.0" y="80.5" width="220" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="j1X-bK-JTE">
                                         <rect key="frame" x="0.0" y="101" width="220" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -74,23 +54,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter City Name" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-bk-3aE">
+                                <rect key="frame" x="10" y="10" width="300" height="56"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1e8-bk-3aE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="2rR-wH-VVn"/>
                             <constraint firstItem="OtA-Fy-OK3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="5Kd-rE-Ji7"/>
+                            <constraint firstItem="1e8-bk-3aE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="6Jb-hE-uFQ"/>
                             <constraint firstItem="OtA-Fy-OK3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bew-jJ-wln"/>
                             <constraint firstAttribute="bottom" secondItem="OtA-Fy-OK3" secondAttribute="bottom" id="H96-ew-zhK"/>
                             <constraint firstItem="DYN-17-vmr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="Itm-9f-l5f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DYN-17-vmr" secondAttribute="trailing" constant="20" id="JHk-1r-Tda"/>
-                            <constraint firstItem="UGI-05-aYB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L4a-kV-EqS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UGI-05-aYB" secondAttribute="trailing" id="QMt-4e-213"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1e8-bk-3aE" secondAttribute="trailing" constant="10" id="UPt-2Z-quu"/>
                             <constraint firstItem="pq6-Fu-zse" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aMd-bV-gxd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pq6-Fu-zse" secondAttribute="bottom" constant="10" id="bFn-U2-Tlg"/>
-                            <constraint firstItem="UGI-05-aYB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qmE-hI-tjN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq6-Fu-zse" secondAttribute="trailing" constant="20" id="s0D-s0-n3R"/>
                             <constraint firstItem="OtA-Fy-OK3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uXw-TN-WIv"/>
-                            <constraint firstItem="DYN-17-vmr" firstAttribute="top" secondItem="UGI-05-aYB" secondAttribute="bottom" constant="10" id="ypR-c4-Or4"/>
+                            <constraint firstItem="DYN-17-vmr" firstAttribute="top" secondItem="1e8-bk-3aE" secondAttribute="bottom" constant="10" id="yZA-2s-UlH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -109,7 +93,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clouds" width="141" height="250.5"/>
+        <image name="snow" width="125" height="187.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
