@@ -29,6 +29,7 @@ extension WeatherAPI {
             throw WeatherError.APIURLNotFound
         }
     }
+    
     /// This method returns Key as String for selected WeatherAPI.
     func getKey() throws -> String {
         switch self {
@@ -39,6 +40,7 @@ extension WeatherAPI {
             throw WeatherError.APIKeyNotFound
         }
     }
+    
     /// This method returns Key with respective Parameter Name as String according to selected WeatherAPI.
     func getKeyWithParameterName() throws -> String {
         switch self {
@@ -50,6 +52,7 @@ extension WeatherAPI {
             throw WeatherError.APIKeyNotFound
         }
     }
+    
     /// This method returns Parameter Name as String for provided Parameter.
     func getParameterName(for parameter: Parameter) throws -> String {
         switch self {

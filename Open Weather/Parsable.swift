@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Protocol used for parsing weather data.
+/// Protocol for tasks related to data parsing.
 protocol Parsable {
     func parse(data: Data) -> WeatherData?
 }

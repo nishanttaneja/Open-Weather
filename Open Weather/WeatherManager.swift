@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 /// Structure used to manage tasks related to request creation, execution and fetching weather data using API.
-struct WeatherManager {
+struct WeatherManager: Parsable {
     let realm = try! Realm()
     var api: WeatherAPI
     var delegate: WeatherManagerDelegate?
@@ -37,9 +37,7 @@ struct WeatherManager {
             performRequest(for: url)
         }
     }
-}
-
-extension WeatherManager: Parsable {
+    
     /// This method creates a session and retrieves data using API.
     private func performRequest(for url: URL) {
         let session = URLSession(configuration: .default)
@@ -64,6 +62,7 @@ extension WeatherManager: Parsable {
 
 //MARK:- Database Handling
 extension WeatherManager: DatabaseHandling {
+    
     func store(weather: WeatherData, of city: String) {
         do {
             let weatherInfo = WeatherInfo()
@@ -102,7 +101,7 @@ extension WeatherManager: DatabaseHandling {
         print("TimeInterval: \(timeInterval)")
         return LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, weatherDescriptionString: firstResult.description, lastFetchedAt: firstResult.fetchedAt)
     }
-
+    
     func removeDataHavingTimeInterval(_ timeInterval: TimeInterval) {
         if let databaseResults = load() {
             print(databaseResults)
@@ -122,4 +121,5 @@ extension WeatherManager: DatabaseHandling {
             print(databaseResults)
         }
     }
+    
 }

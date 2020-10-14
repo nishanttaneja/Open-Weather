@@ -18,6 +18,7 @@ class WeatherInfo: Object {
     @objc dynamic var condition = ""
     @objc dynamic var conditionDescription = ""
     
+    /// This method makes updating values of an instance easier.
     func addParameters(for city: String, _ temperature: String, _ feelsLike: String, _ highestTemperature: String, _ lowestTemperature: String, _ condition: String, conditionDescription: String) {
         self.city = city
         self.temperature = temperature

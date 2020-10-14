@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Structure to generate presentable data for view through data loaded from database.
 struct LoadedData: Presentable {
     var city: String
     var temperatureString: String

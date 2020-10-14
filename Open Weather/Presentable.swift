@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Contains variables required to present data on a view.
 protocol Presentable {
     var city: String { get }
     var condition: String { get }

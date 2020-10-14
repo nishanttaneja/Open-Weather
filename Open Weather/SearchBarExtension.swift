@@ -8,7 +8,7 @@
 import UIKit
 
 extension UISearchBar {
-    /// This method checks that SearchBar TextField contains some text or not.
+    /// This method checks that SearchBar's TextField contains some text or not.
     func isSearchable() -> Bool {
         if text?.count == 0 {
             return false
