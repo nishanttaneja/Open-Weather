@@ -36,7 +36,6 @@ extension HomeViewController {
         weatherManager.removeDataHavingTimeInterval(86400)      // 24 hours
         searchBar.delegate = self
     }
-    
     // User Touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.endEditing(true)

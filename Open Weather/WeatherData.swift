@@ -44,7 +44,6 @@ extension WeatherData: Presentable {
     var lastFetchedAt: Date {
         return Date()
     }
-    
     var city: String {
         return name
     }

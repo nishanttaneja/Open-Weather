@@ -24,7 +24,6 @@ struct WeatherManager: Parsable {
         }
         return nil
     }
-    
     /// This methods calls necessary methods to fetch weather data.
     func fetchWeather(for city: String) {
         if let databaseResults = load(weatherFor: city) {
@@ -37,7 +36,6 @@ struct WeatherManager: Parsable {
             performRequest(for: url)
         }
     }
-    
     /// This method creates a session and retrieves data using API.
     private func performRequest(for url: URL) {
         let session = URLSession(configuration: .default)
@@ -62,20 +60,17 @@ struct WeatherManager: Parsable {
 
 //MARK:- Database Handling
 extension WeatherManager: DatabaseHandling {
-    
     func store(weather: WeatherData, of city: String) {
         do {
             let weatherInfo = WeatherInfo()
             weatherInfo.addParameters(for: city, weather.temperatureString, weather.feelsLikeTemperatureString, weather.highestTemperatureString, weather.lowestTemperatureString, weather.condition, conditionDescription: weather.weatherDescriptionString)
             try realm.write {
                 realm.add(weatherInfo)
-                print("==============\nData saved successfully to database. \nCity: \(city) \nFetched at: \(weather.lastFetchedAt)")
             }
         } catch {
             print(error.localizedDescription)
         }
     }
-    
     func load(weatherFor city: String? = nil) -> Results<WeatherInfo>? {
         var databaseResult: Results<WeatherInfo>?
         if let cityName = city {
@@ -89,22 +84,15 @@ extension WeatherManager: DatabaseHandling {
         }
         return databaseResult
     }
-    
     func generatePresentableData(_ data: Results<WeatherInfo>) -> Presentable? {
         guard let firstResult = data.first else {
             print("error loading first element from results")
             return nil
         }
-        print("==============\nData loaded successfully from database. \nCity: \(firstResult.city) \nFetched at: \(firstResult.fetchedAt)")
-        print("Current time: \(Date())")
-        let timeInterval = Date().timeIntervalSince(firstResult.fetchedAt)
-        print("TimeInterval: \(timeInterval)")
         return LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, weatherDescriptionString: firstResult.description, lastFetchedAt: firstResult.fetchedAt)
     }
-    
     func removeDataHavingTimeInterval(_ timeInterval: TimeInterval) {
         if let databaseResults = load() {
-            print(databaseResults)
             for result in databaseResults {
                 let timeDifference = Date().timeIntervalSince(result.fetchedAt)
                 if timeDifference > timeInterval {
@@ -118,8 +106,6 @@ extension WeatherManager: DatabaseHandling {
                     }
                 }
             }
-            print(databaseResults)
         }
     }
-    
 }
