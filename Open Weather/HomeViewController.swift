@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var highTempLabel: UILabel!
     @IBOutlet weak var LowTempLabel: UILabel!
     @IBOutlet weak var weatherConditionImageView: UIImageView!
-    @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
     // Initialise Weather Manager
@@ -66,7 +65,6 @@ extension HomeViewController: WeatherManagerDelegate {
         highTempLabel.text = weatherData.highestTemperatureString
         LowTempLabel.text = weatherData.lowestTemperatureString
         weatherConditionImageView.image = UIImage(systemName: weatherData.condition)
-        weatherDescriptionLabel.text = weatherData.weatherDescriptionString
         cityLabel.text = weatherData.city
     }
 }

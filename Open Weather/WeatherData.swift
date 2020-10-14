@@ -47,9 +47,6 @@ extension WeatherData: Presentable {
     var city: String {
         return name
     }
-    var weatherDescriptionString: String {
-        return weather![0].description
-    }
     var temperatureString: String {
         return String(format: "%.1fºC", main.temp)
     }

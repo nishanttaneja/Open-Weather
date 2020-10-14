@@ -63,7 +63,7 @@ extension WeatherManager: DatabaseHandling {
     func store(weather: WeatherData, of city: String) {
         do {
             let weatherInfo = WeatherInfo()
-            weatherInfo.addParameters(for: city, weather.temperatureString, weather.feelsLikeTemperatureString, weather.highestTemperatureString, weather.lowestTemperatureString, weather.condition, conditionDescription: weather.weatherDescriptionString)
+            weatherInfo.addParameters(for: city, weather.temperatureString, weather.feelsLikeTemperatureString, weather.highestTemperatureString, weather.lowestTemperatureString, weather.condition)
             try realm.write {
                 realm.add(weatherInfo)
             }
@@ -89,7 +89,7 @@ extension WeatherManager: DatabaseHandling {
             print("error loading first element from results")
             return nil
         }
-        return LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, weatherDescriptionString: firstResult.description, lastFetchedAt: firstResult.fetchedAt)
+        return LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, lastFetchedAt: firstResult.fetchedAt)
     }
     func removeDataHavingTimeInterval(_ timeInterval: TimeInterval) {
         if let databaseResults = load() {

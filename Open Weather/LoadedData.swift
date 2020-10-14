@@ -15,6 +15,5 @@ struct LoadedData: Presentable {
     var highestTemperatureString: String
     var lowestTemperatureString: String
     var condition: String
-    var weatherDescriptionString: String
     var lastFetchedAt: Date
 }
