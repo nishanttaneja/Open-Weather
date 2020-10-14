@@ -18,4 +18,16 @@ extension UISearchBar {
         }
         return true
     }
+    
+    /// This method modifies attributes of searchField
+    func modifyAttributes(forWeatherCondition condition: String) {
+        searchTextField.leftView?.tintColor = .white
+        tintColor = .white
+        searchTextField.textColor = .white
+        
+        searchTextField.attributedPlaceholder = NSAttributedString(string: searchTextField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.borderColor = UIColor.white.cgColor
+    }
 }
