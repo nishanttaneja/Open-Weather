@@ -59,7 +59,7 @@ extension HomeViewController: WeatherManagerDelegate {
         tempLabel.text = weatherData.temperatureString
         highTempLabel.text = weatherData.highestTemperatureString
         LowTempLabel.text = weatherData.lowestTemperatureString
-//        weatherConditionImageView.image = UIImage(systemName: weatherData.condition)
+        weatherConditionImageView.image = UIImage(named: weatherData.condition)
         cityLabel.text = weatherData.city
     }
 }
