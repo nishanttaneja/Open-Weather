@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum DataRetrievalLocation {
+    case Database
+    case API
+}
+
 protocol WeatherManagerDelegate {
-    func didFetchData(_ data: WeatherData)
+    func didReadData(_ weatherData: Presentable, for city: String, from location: DataRetrievalLocation)
 }
