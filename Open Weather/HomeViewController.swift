@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherManager.delegate = self
+        weatherManager.removeDataHavingTimeInterval(86400)      // 24 hours
         searchBar.delegate = self
     }
     
@@ -56,16 +57,14 @@ extension HomeViewController {
 
 //MARK:- WeatherManagerDelegate
 extension HomeViewController: WeatherManagerDelegate {
-    func didFetchData(_ data: WeatherData) {
-        DispatchQueue.main.async {
-            self.feelsLikeTempLabel.text = data.feelsLikeTemperatureString
-            self.tempLabel.text = data.temperatureString
-            self.highTempLabel.text = data.highestTemperatureString
-            self.LowTempLabel.text = data.lowestTemperatureString
-            self.weatherConditionImageView.image = UIImage(systemName: data.condition)
-            self.weatherDescriptionLabel.text = data.weatherDescriptionString
-            self.cityLabel.text = data.name
-        }
+    func didReadData(_ weatherData: Presentable, for city: String, from location: DataRetrievalLocation) {
+        feelsLikeTempLabel.text = weatherData.feelsLikeTemperatureString
+        tempLabel.text = weatherData.temperatureString
+        highTempLabel.text = weatherData.highestTemperatureString
+        LowTempLabel.text = weatherData.lowestTemperatureString
+        weatherConditionImageView.image = UIImage(systemName: weatherData.condition)
+        weatherDescriptionLabel.text = weatherData.weatherDescriptionString
+        cityLabel.text = weatherData.city
     }
 }
 

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol DatabaseHandling {
     func store(weather: WeatherData, of city: String)
-    func load(weatherFor city: String?) -> Presentable?
+    func load(weatherFor city: String?) -> Results<WeatherInfo>?
     func removeDataHavingTimeInterval(_ timeInterval: TimeInterval)
 }

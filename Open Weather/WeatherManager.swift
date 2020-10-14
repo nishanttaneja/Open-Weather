@@ -27,9 +27,11 @@ struct WeatherManager {
     
     /// This methods calls necessary methods to fetch weather data.
     func fetchWeather(for city: String) {
-        if let weatherData = load(weatherFor: city) {
-            DispatchQueue.main.async {
-                delegate?.didReadData(weatherData, for: city, from: .Database)
+        if let databaseResults = load(weatherFor: city) {
+            if let presentableData = generatePresentableData(databaseResults) {
+                DispatchQueue.main.async {
+                    delegate?.didReadData(presentableData, for: city, from: .Database)
+                }
             }
         } else if let url = createRequest(for: city) {
             performRequest(for: url)
@@ -75,7 +77,7 @@ extension WeatherManager: DatabaseHandling {
         }
     }
     
-    func load(weatherFor city: String? = nil) -> Presentable? {
+    func load(weatherFor city: String? = nil) -> Results<WeatherInfo>? {
         var databaseResult: Results<WeatherInfo>?
         if let cityName = city {
             let cityPredicate = NSPredicate(format: "city CONTAINS %@", cityName)
@@ -83,23 +85,41 @@ extension WeatherManager: DatabaseHandling {
         } else {
             databaseResult = realm.objects(WeatherInfo.self)
         }
-        guard let results = databaseResult else {
-            fatalError("error loading data from database")
+        if databaseResult?.count == 0 {
+            return nil
         }
-        if let firstResult = results.first {
-            let loadedData = LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, weatherDescriptionString: firstResult.conditionDescription, lastFetchedAt: firstResult.fetchedAt)
-            print("==============\nData loaded successfully from database. \nCity: \(firstResult.city) \nFetched at: \(firstResult.fetchedAt)")
-            print("Current time: \(Date())")
-            let timeInterval = Date().timeIntervalSince(loadedData.lastFetchedAt)
-            print("TimeInterval: \(timeInterval)")
-            return loadedData
-        }
-        return nil
+        return databaseResult
     }
     
+    func generatePresentableData(_ data: Results<WeatherInfo>) -> Presentable? {
+        guard let firstResult = data.first else {
+            print("error loading first element from results")
+            return nil
+        }
+        print("==============\nData loaded successfully from database. \nCity: \(firstResult.city) \nFetched at: \(firstResult.fetchedAt)")
+        print("Current time: \(Date())")
+        let timeInterval = Date().timeIntervalSince(firstResult.fetchedAt)
+        print("TimeInterval: \(timeInterval)")
+        return LoadedData(city: firstResult.city, temperatureString: firstResult.temperature, feelsLikeTemperatureString: firstResult.feelsLike, highestTemperatureString: firstResult.highestTemperature, lowestTemperatureString: firstResult.lowestTemperature, condition: firstResult.condition, weatherDescriptionString: firstResult.description, lastFetchedAt: firstResult.fetchedAt)
+    }
+
     func removeDataHavingTimeInterval(_ timeInterval: TimeInterval) {
-        if let weatherData = load() {
-            print(weatherData)
+        if let databaseResults = load() {
+            print(databaseResults)
+            for result in databaseResults {
+                let timeDifference = Date().timeIntervalSince(result.fetchedAt)
+                if timeDifference > timeInterval {
+                    // Remove object
+                    do {
+                        try realm.write {
+                            realm.delete(result)
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            print(databaseResults)
         }
     }
 }
