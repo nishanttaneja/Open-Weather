@@ -10,7 +10,7 @@ import RealmSwift
 
 /// Structure used to manage tasks related to request creation, execution and fetching weather data using API.
 struct WeatherManager: Parsable {
-    let realm = try! Realm()
+    let realmInstance = try? Realm()
     var api: WeatherAPI
     var delegate: WeatherManagerDelegate?
     
@@ -61,6 +61,7 @@ struct WeatherManager: Parsable {
 //MARK:- Database Handling
 extension WeatherManager: DatabaseHandling {
     func store(weather: WeatherData, of city: String) {
+        guard let realm = realmInstance else {fatalError("realm instance found nil while storing data")}
         do {
             let weatherInfo = WeatherInfo()
             weatherInfo.addParameters(for: city, weather.temperatureString, weather.feelsLikeTemperatureString, weather.highestTemperatureString, weather.lowestTemperatureString, weather.condition)
@@ -72,6 +73,7 @@ extension WeatherManager: DatabaseHandling {
         }
     }
     func load(weatherFor city: String? = nil) -> Results<WeatherInfo>? {
+        guard let realm = realmInstance else {fatalError("realm instance found nil while loading data")}
         var databaseResult: Results<WeatherInfo>?
         if let cityName = city {
             let cityPredicate = NSPredicate(format: "city CONTAINS %@", cityName)
@@ -96,7 +98,7 @@ extension WeatherManager: DatabaseHandling {
             for result in databaseResults {
                 let timeDifference = Date().timeIntervalSince(result.fetchedAt)
                 if timeDifference > timeInterval {
-                    // Remove object
+                    guard let realm = realmInstance else {fatalError("realm instance found nil while trying to remove database objects")}
                     do {
                         try realm.write {
                             realm.delete(result)
