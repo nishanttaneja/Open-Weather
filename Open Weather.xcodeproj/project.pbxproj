@@ -96,24 +96,32 @@
 			children = (
 				B41E18F8253627AB00B64D93 /* AppDelegate.swift */,
 				B41E18FA253627AB00B64D93 /* SceneDelegate.swift */,
-				B41E191125362AF900B64D93 /* WeatherData.swift */,
-				B4241E70253723D7007832A2 /* LoadedData.swift */,
-				B4241E6D25372166007832A2 /* Presentable.swift */,
 				B4241E67253713FD007832A2 /* WeatherInfo.swift */,
-				B4241E6A2537143D007832A2 /* DatabaseHandling.swift */,
-				B41E191425362B1F00B64D93 /* WeatherError.swift */,
 				B41E191725362B4B00B64D93 /* WeatherAPI.swift */,
-				B41E191A25362BD100B64D93 /* Parsable.swift */,
-				B41E1923253632F300B64D93 /* WeatherManagerDelegate.swift */,
 				B41E191D25362BFE00B64D93 /* WeatherManager.swift */,
-				B41E192825363E2A00B64D93 /* SearchBarExtension.swift */,
 				B41E18FC253627AB00B64D93 /* HomeViewController.swift */,
+				B43E4CB9253819AE00ABA4F6 /* Helpers */,
 				B41E18FE253627AB00B64D93 /* Main.storyboard */,
 				B41E1901253627AE00B64D93 /* Assets.xcassets */,
 				B41E1903253627AE00B64D93 /* LaunchScreen.storyboard */,
 				B41E1906253627AE00B64D93 /* Info.plist */,
 			);
 			path = "Open Weather";
+			sourceTree = "<group>";
+		};
+		B43E4CB9253819AE00ABA4F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B4241E6D25372166007832A2 /* Presentable.swift */,
+				B4241E70253723D7007832A2 /* LoadedData.swift */,
+				B41E191125362AF900B64D93 /* WeatherData.swift */,
+				B41E1923253632F300B64D93 /* WeatherManagerDelegate.swift */,
+				B4241E6A2537143D007832A2 /* DatabaseHandling.swift */,
+				B41E191A25362BD100B64D93 /* Parsable.swift */,
+				B41E191425362B1F00B64D93 /* WeatherError.swift */,
+				B41E192825363E2A00B64D93 /* SearchBarExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DD2C5E9A814FEDD483AF66C7 /* Frameworks */ = {
