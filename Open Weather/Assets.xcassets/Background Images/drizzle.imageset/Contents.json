@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "drizzle.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "drizzle@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "drizzle@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "drizzle.jpeg",
+      "idiom" : "iphone"
     }
   ],
   "info" : {
